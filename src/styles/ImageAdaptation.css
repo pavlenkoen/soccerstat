@@ -1,0 +1,21 @@
+@media screen and (max-width: 600px) {
+  img {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) and (min-width: 600px) {
+  img {
+    display: flex;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 4200px) and (min-width: 800px) {
+  img {
+    display: flex;
+    width: 200px;
+    height: 200px;
+  }
+}
