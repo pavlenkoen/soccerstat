@@ -1,6 +1,5 @@
 import SearchIcon from "@mui/icons-material/Search";
 import Input from "@mui/material/Input";
-
 import { Card } from "@mui/material";
 
 const SearchBar = ({ setValue }) => {

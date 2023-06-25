@@ -1,15 +1,16 @@
-import "./App.css";
+import { Provider } from "react-redux";
 import { RouterProvider } from "react-router-dom";
+import store from "./store";
 import { routes } from "./routes/routes";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
+      <Provider store={store}>
         <RouterProvider router={routes} />
-      </header>
+      </Provider>
     </div>
   );
-}
+};
 
 export default App;

@@ -10,9 +10,14 @@ export const LeaguesPage = () => {
   const competitions = useSelector((state) => state.competitions.competitions);
   const dispatch = useDispatch();
   const [value, setValue] = useState("");
+  const [error, setError] = useState();
 
   useEffect(() => {
-    dispatch(axiosCompetitions());
+    try {
+      dispatch(axiosCompetitions());
+    } catch (err) {
+      setError(err.message);
+    }
   }, []);
 
   const filteredCompetitions = competitions.filter((compet) => {
@@ -26,6 +31,11 @@ export const LeaguesPage = () => {
           ml: "10%",
         }}
       >
+        {error && (
+          <Box>
+            <h2 style={{ color: "red" }}>{`ERROR:${error}`}</h2>
+          </Box>
+        )}
         <SearchBar setValue={setValue} />
         <CompetitionsGridBox ordersArray={filteredCompetitions} />
       </Box>

@@ -20,25 +20,22 @@ export const TeamCalendar = () => {
   const [data, setData] = useState({});
   const [dateBefore, setDateBefore] = useState(dayjs("2022-04-17"));
   const [dateAfter, setDateAfter] = useState(dayjs("2023-06-18"));
+  const [error, setError] = useState();
   const { hash } = useLocation();
 
   const teamId = hash.slice(1);
 
   useEffect(() => {
-    dispatch(axiosTeamMatches(teamId));
+    try {
+      dispatch(axiosTeamMatches(teamId));
+    } catch (err) {
+      setError(err.message);
+    }
   }, []);
 
   useEffect(() => {
     getData();
   }, [matches]);
-
-  const getStatus = (arr, val) => {
-    for (const [key, value] of arr) {
-      if (key === val) {
-        return value;
-      }
-    }
-  };
 
   const filteredMatches =
     dateBefore && dateAfter
@@ -66,10 +63,7 @@ export const TeamCalendar = () => {
         formatDate(match.season.startDate)
       ),
       time: match.utcDate.replace(match.utcDate, formatTime(match.utcDate)),
-      status: match.status.replace(
-        match.status,
-        getStatus(rowsStatus, match.status)
-      ),
+      status: match.status.replace(match.status, rowsStatus[match.status]),
       "team 1 - team 2": `${match.homeTeam.shortName}  -  ${match.awayTeam.shortName}`,
       score: match.score.penalties
         ? `${match.score.fullTime.home} : ${match.score.fullTime.away} (${match.score.extraTime.home}:${match.score.extraTime.away}) (${match.score.penalties.home}:${match.score.penalties.away})`
@@ -100,6 +94,11 @@ export const TeamCalendar = () => {
   if (data) {
     return (
       <>
+        {error && (
+          <Box>
+            <h2 style={{ color: "red" }}>{`ERROR:${error}`}</h2>
+          </Box>
+        )}
         <Box style={{ display: "flex" }}>
           <img
             className="img"

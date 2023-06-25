@@ -10,11 +10,15 @@ export const TeamsPage = () => {
   const teams = useSelector((state) => state.teams.teams);
   const dispatch = useDispatch();
   const [value, setValue] = useState("");
+  const [error, setError] = useState();
 
   useEffect(() => {
-    dispatch(axiosTeams());
+    try {
+      dispatch(axiosTeams());
+    } catch (err) {
+      setError(err.message);
+    }
   }, []);
-  console.log(teams);
 
   const filteredTeams = teams.filter((team) => {
     return team.name.toLowerCase().includes(value.toLowerCase());
@@ -22,6 +26,11 @@ export const TeamsPage = () => {
   return (
     <>
       <Box sx={{ ml: "10%" }}>
+        {error && (
+          <Box>
+            <h2 style={{ color: "red" }}>{`ERROR:${error}`}</h2>
+          </Box>
+        )}
         <SearchBar setValue={setValue} />
         <TeamsGridBox ordersArray={filteredTeams} />
       </Box>
