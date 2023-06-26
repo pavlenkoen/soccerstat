@@ -1,8 +1,16 @@
-.home {
-  display: flex;
-  gap: 10px;
+.cardchamp {
+  background-image: url("../../img/HomePageBackground.jpg");
+  background-repeat: no-repeat;
+  -moz-background-size: 100%;
+  -webkit-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
 }
-
-.home .col {
-  padding: 0;
+.cardteam {
+  background-image: url("../../img/HomePageTeam.jpg");
+  background-repeat: no-repeat;
+  -moz-background-size: 100%;
+  -webkit-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
 }

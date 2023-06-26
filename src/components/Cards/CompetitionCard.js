@@ -1,7 +1,7 @@
 import { Card } from "@mui/material";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
-import logo from "../../logo.svg";
+import logo from "../../img/logo.svg";
 import { useNavigate } from "react-router-dom";
 
 const CompetitionCard = ({ props }) => {

@@ -1,10 +1,6 @@
 import axios from "axios";
 
-const api = axios.create({
-  headers: {
-    "X-Auth-Token": "8c04d401925e49e599c1ae9253de1363",
-  },
-});
+const api = axios.create();
 
 export const getCompetitionMatches = async (competitionId) => {
   const response = await api.get(`/competitions/${competitionId}/matches`);
