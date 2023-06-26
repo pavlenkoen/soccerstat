@@ -22,7 +22,9 @@ const competitionMatchesSlice = createSlice({
       state.status = "resolved";
       state.competitionMatches = action.payload;
     },
-    [axiosCompetitionMatches.rejected]: (state, action) => {},
+    [axiosCompetitionMatches.rejected]: (state) => {
+      state.status = "rejected";
+    },
   },
 });
 

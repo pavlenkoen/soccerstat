@@ -18,14 +18,7 @@ const CompetitionsGridBox = ({ ordersArray }) => {
       >
         {ordersArray.map((compet, index) => (
           <Grid item xs={1} sm={2} md={2} key={index}>
-            <Grid
-              item={true}
-              container
-              rowSpacing={2}
-              columnSpacing={{ xs: 2, sm: 2, md: 0 }}
-            >
-              <CompetitionCard props={compet} index={index} />
-            </Grid>
+            <CompetitionCard props={compet} index={index} />
           </Grid>
         ))}
       </Grid>

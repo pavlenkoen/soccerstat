@@ -19,7 +19,9 @@ const teamSlice = createSlice({
       state.status = "resolved";
       state.teams = action.payload;
     },
-    [axiosTeams.rejected]: (state, action) => {},
+    [axiosTeams.rejected]: (state) => {
+      state.status = "rejected";
+    },
   },
 });
 

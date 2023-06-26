@@ -21,7 +21,7 @@ export const LeagueCalendar = () => {
   const dispatch = useDispatch();
   const [data, setData] = useState({});
   const [dateBefore, setDateBefore] = useState(dayjs("2022-04-17"));
-  const [dateAfter, setDateAfter] = useState(dayjs("2023-06-18"));
+  const [dateAfter, setDateAfter] = useState(dayjs("2023-09-18"));
   const [error, setError] = useState();
 
   const { hash } = useLocation();

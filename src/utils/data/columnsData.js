@@ -6,7 +6,6 @@ const columns = [
     headerName: "Дата проведения матча",
     width: n / 8,
     editable: true,
-
     align: "left",
   },
   {

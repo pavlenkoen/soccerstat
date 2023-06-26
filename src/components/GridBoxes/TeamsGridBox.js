@@ -18,13 +18,7 @@ const TeamsGridBox = ({ ordersArray }) => {
       >
         {ordersArray.map((team, index) => (
           <Grid item xs={1} sm={2} md={2} key={index}>
-            <Grid
-              container
-              rowSpacing={2}
-              columnSpacing={{ xs: 2, sm: 2, md: 0 }}
-            >
-              <TeamCard props={team} />
-            </Grid>
+            <TeamCard props={team} />
           </Grid>
         ))}
       </Grid>

@@ -23,7 +23,9 @@ const competitionSlice = createSlice({
       state.competitions = action.payload;
       console.log(state.competitions);
     },
-    [axiosCompetitions.rejected]: (state, action) => {},
+    [axiosCompetitions.rejected]: (state) => {
+      state.status = "rejected";
+    },
   },
 });
 
